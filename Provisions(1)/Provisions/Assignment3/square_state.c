@@ -174,13 +174,12 @@ bool occupied(square_state s)
 *
 *	Param c int the number of this move
 */
-void occupy(square_state s, int c) //not sure about this one!
+void occupy(square_state s, int c) 
 {
 	trace("occupy: occupy starts");
-
 	s->visited = true;
-	s->move;
 	trace("occupy: occupy ends");
+	s->move;
 }
 
 

@@ -19,7 +19,7 @@
 
 
 /*
-	*	trace hellooooo HELLLLOOOOOO
+	*	trace
 	*	Provide trace output.
 	*	Pre-condition: none
 	*	Post-condition: if trace output is desired then the given String

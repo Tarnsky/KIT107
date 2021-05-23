@@ -93,7 +93,7 @@ int get_column(game_state s)
 {
 	trace("get_column: get_column starts and finishes");
 
-	//COMPLETE ME!
+	return (s->column);
 }
 
 
@@ -113,7 +113,7 @@ void set_row(game_state s, int r)
 {
 	trace("set_row: set_row starts");
 
-	////COMPLETE ME!
+	s->row = r;
 
 	trace("set_row: set_row ends");
 }
@@ -135,7 +135,7 @@ void set_column(game_state s, int c)
 {
 	trace("set_column: set_column starts");
 
-	//COMPLETE ME!
+	s->column = c;
 
 	trace("set_column: set_column ends");
 }
@@ -154,7 +154,7 @@ int get_moves(game_state g)
 {
 	trace("get_moves: get_moves starts and finishes");
 
-	//COMPLETE ME!
+	return g->moves;
 }
 
 
@@ -170,7 +170,7 @@ void set_moves(game_state g, int m)
 {
 	trace("set_moves: set_moves starts");
 
-	//COMPLETE ME!
+	return m++;
 
 	trace("set_moves: set_moves ends");
 }
@@ -212,7 +212,8 @@ void set_square(game_state g, square_state s)
 
 	trace("set_square: set_square starts");
 
-	//COMPLETE ME!
+	g->row = r;
+	g->column = c;
 
 	trace("set_square: set_square ends");
 }
