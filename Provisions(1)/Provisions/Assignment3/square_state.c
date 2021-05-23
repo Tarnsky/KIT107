@@ -83,9 +83,9 @@ int get_row_num(square_state s)
 */
 int get_column_num(square_state s)
 {
-	trace("get_column_num: get_column_num starts and finishes");
+	//trace("get_column_num: get_column_num starts and finishes");
 
-	//COMPLETE ME!
+	return (s->column);
 }
 
 
@@ -123,7 +123,7 @@ void set_column_num(square_state s, int c)
 {
 	trace("set_column_num: set_column_num starts");
 
-	//COMPLETE ME!
+	s->column = c;
 
 	trace("set_column_num: set_column_num ends");
 }
@@ -159,7 +159,7 @@ bool occupied(square_state s)
 {
 	trace("occupied: visit starts and finishes");
 
-	//COMPLETE ME!
+	return s->visited;
 }
 
 
@@ -174,12 +174,12 @@ bool occupied(square_state s)
 *
 *	Param c int the number of this move
 */
-void occupy(square_state s, int c)
+void occupy(square_state s, int c) //not sure about this one!
 {
 	trace("occupy: occupy starts");
 
-	//COMPLETE ME!
-
+	s->visited = true;
+	s->move;
 	trace("occupy: occupy ends");
 }
 
