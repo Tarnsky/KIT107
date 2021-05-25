@@ -75,7 +75,7 @@ int get_row(game_state s)
 {
 	trace("get_row: get_row starts and finishes");
 
-	////COMPLETE ME!
+	return (s->row);
 }
 
 
@@ -170,7 +170,7 @@ void set_moves(game_state g, int m)
 {
 	trace("set_moves: set_moves starts");
 
-	return m++;
+	g->moves=m;
 
 	trace("set_moves: set_moves ends");
 }
@@ -191,7 +191,7 @@ square_state get_square(game_state g, int r, int c)
 {
 	trace("get_square: get_square starts and finishes");
 
-	//COMPLETE ME!
+	return (g->board[r-1][c-1]);
 }
 
 
@@ -211,10 +211,11 @@ void set_square(game_state g, square_state s)
 	int r, c;	// row and column of given square_state
 
 	trace("set_square: set_square starts");
-
-	g->row = r;
-	g->column = c;
-
+	
+	r=get_row_num(s);
+	c=get_column_num(s);
+	s=g->board[r-1][c-1];
+	
 	trace("set_square: set_square ends");
 }
 
@@ -237,7 +238,7 @@ bool valid(game_state g, int r, int c)
 {
 	trace("valid: valid starts and finishes");
 
-	//COMPLETE ME!
+	return ((r>0 && r<= DIMENSION) && (C>0 && C<= DIMENSION));
 }
 
 
@@ -260,7 +261,7 @@ bool taken(game_state g, int r, int c)
 {
 	trace("taken: taken starts and finishes");
 
-	//COMPLETE ME!
+	return occupied(g->board[r-1][c-1]);
 }
 
 
@@ -280,9 +281,15 @@ bool taken(game_state g, int r, int c)
 */
 void land(game_state g, int r, int c)
 {
+	int num_of_moves;
 	trace("land: land starts");
 
-	//COMPLETE ME!
+	num_of_moves = get_moves(g);
+	set_row(g,r);
+	set_column(g,c);
+	
+	//Finish COMPLETE ME!
+	//Need to increment the number of moves and occupy the related cell....
 
 	trace("land: land ends");
 }
