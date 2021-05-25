@@ -177,9 +177,11 @@ bool occupied(square_state s)
 void occupy(square_state s, int c) 
 {
 	trace("occupy: occupy starts");
+	
 	s->visited = true;
-	trace("occupy: occupy ends");
 	s->move;
+	
+	trace("occupy: occupy ends");
 }
 
 
@@ -228,7 +230,7 @@ void show_square_state(square_state s)
 	{
 		printf("%3d",s->move);
 	}
-	else				// empty
+	else			// empty
 	{
 		printf("   ");
 	}
