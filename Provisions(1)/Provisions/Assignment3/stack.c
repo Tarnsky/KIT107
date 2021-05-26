@@ -54,7 +54,7 @@ bool is_empty_stack(stack s)
 {
 	trace("is_empty_stack: is_empty_stack starts and ends");
 
-	//COMPLETE ME!
+	return (s->tos == NULL);
 }
 
 
