@@ -55,7 +55,7 @@ bool is_empty_queue(queue q)
 {
 	trace("is_empty_queue: is_empty_queue starts and ends");
 
-	//COMPLETE ME!
+	return (q->first == NULL);
 }
 
 
