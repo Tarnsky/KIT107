@@ -54,8 +54,10 @@ void init_game_tree(game_tree *tp,bool e,void *o,int l)
 	{
 		(*tp)->root = NULL;
 	}
-	//(*tp)->root = o;
-	//(*tp)->root = l;
+	//init_t_node(&tp, NULL, NULL);
+	//set_t_node_parent(NULL);
+	//set_t_node_child(NULL);
+
 
 	trace("game_tree: initialiser ends");
 	//Finish COMPLETE ME!!
@@ -77,7 +79,9 @@ bool is_empty_game_tree(game_tree t)
 {
 	trace("is_empty_game_tree: is_empty_game_tree starts and ends");
 		
-	//COMPLETE ME!
+	return (t->root == NULL);
+	//Finish COMPLETE ME!!
+	//is this right?
 }
 
 
@@ -119,8 +123,14 @@ void *get_data(game_tree t)
 int get_level(game_tree t)
 {
 	trace("get_level: get_level starts");
-		
-	//COMPLETE ME!
+
+	if (is_empty_game_tree(t))
+	{
+		fprintf(stderr, "get_level: empty game tree");
+		exit(1);
+	}
+	return get_t_node_level(t->root);
+
 }
 	
 
@@ -200,10 +210,20 @@ game_tree get_child(game_tree t)
 game_tree get_sibling(game_tree t) 
 {
 	game_tree s;
-		
+
 	trace("get_sibling: get_sibling starts");
-		
-	//COMPLETE ME!
+
+	if (is_empty_game_tree(t))
+	{
+		fprintf(stderr, "get_sibling: empty game tree");
+		exit(1);
+	}
+
+	init_game_tree(&s, true, NULL, -1);
+	s->root = get_t_node_sibling(t->root);
+
+	trace("get_child: get_sibling ends");
+	return s;
 }
 
 
@@ -249,7 +269,13 @@ void set_level(game_tree t,int l)
 {
 	trace("set_level: set_level starts");
 		
-	//COMPLETE ME!
+	if (is_empty_game_tree(t))
+	{
+		fprintf(stderr, "set_level: empty game tree");
+		exit(1);
+	}
+
+	set_t_node_level(t->root, l);
 
 	trace("set_level: set_level ends");
 }
@@ -324,7 +350,13 @@ void set_sibling(game_tree t,game_tree s)
 {
 	trace("set_sibling: set_sibling starts");
 		
-	//COMPLETE ME!
+	if (is_empty_game_tree(t))
+	{
+		fprintf(stderr, "set_sibling: empty game tree");
+		exit(1);
+	}
+
+	set_t_node_child(t->root, s->root);
 
 	trace("set_sibling: set_sibling ends");
 }
