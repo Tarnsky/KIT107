@@ -23,8 +23,8 @@
 //types
 struct t_node_int
 {
-	void *data;		// the value stored in the node
-	int level;		// the level of the current node
+	void *data;	// the value stored in the node
+	int level;	// the level of the current node
 	t_node parent;	// the parent node of the current node
 	t_node child;	// the eldest child node of the current node
 	t_node sibling;	// the next eldest node of the current node
