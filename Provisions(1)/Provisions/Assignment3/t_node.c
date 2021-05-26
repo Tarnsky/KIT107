@@ -55,10 +55,11 @@ void init_t_node(t_node *tp, void *o, int l)
 	*tp = (t_node)malloc(sizeof(struct t_node_int));
 	(*tp)->data = o;
 	(*tp)->level = l;
+	(*tp)->child = NULL;
+	(*tp)->sibling = NULL;
+	(*tp)->parent = NULL;
 
     trace("t_node: Initialiser ends");
-	//Finish COMPLETE ME!
-	//terminate the "child", "sibling", and "parent" fields?
 }
 
 

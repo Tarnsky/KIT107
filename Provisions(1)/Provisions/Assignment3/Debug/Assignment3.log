@@ -1,35 +1,18 @@
-﻿  assig_three121.c
-  game_state.c
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(211,9): warning C4101: 'c': unreferenced local variable
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(211,6): warning C4101: 'r': unreferenced local variable
+﻿  game_state.c
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(314,35): warning C4133: 'function': incompatible types - from 'game_state' to 'square_state'
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(314,33): warning C4020: 'init_game_state': too many actual parameters
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(314,54): warning C4133: 'function': incompatible types - from 'game_state' to 'square_state'
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(315,16): warning C4133: 'function': incompatible types - from 'game_state' to 'square_state'
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(318,11): warning C4133: 'function': incompatible types - from 'game_state' to 'square_state'
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(318,24): warning C4133: 'function': incompatible types - from 'game_state' to 'square_state'
   game_tree.c
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(194,12): warning C4101: 's': unreferenced local variable
-  node.c
-  queue.c
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\queue.c(36,7): warning C4013: 'trace' undefined; assuming extern returning int
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(202,12): warning C4101: 's': unreferenced local variable
   square_state.c
-  stack.c
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\stack.c(35,7): warning C4013: 'trace' undefined; assuming extern returning int
   t_node.c
   Generating Code...
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\t_node.c(257): warning C4716: 'get_t_node_sibling': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\t_node.c(219): warning C4716: 'get_t_node_parent': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\t_node.c(238): warning C4716: 'get_t_node_child': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\t_node.c(200): warning C4716: 'get_t_node_level': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\stack.c(75): warning C4716: 'top': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\stack.c(58): warning C4716: 'is_empty_stack': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\queue.c(59): warning C4716: 'is_empty_queue': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\queue.c(76): warning C4716: 'front': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(73): warning C4716: 'is_empty_game_tree': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(116): warning C4716: 'get_level': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(199): warning C4716: 'get_sibling': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(382): warning C4716: 'build_gameBF': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(442): warning C4716: 'build_gameDF': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(79): warning C4716: 'get_row': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(97): warning C4716: 'get_column': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(158): warning C4716: 'get_moves': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(195): warning C4716: 'get_square': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(240): warning C4716: 'valid': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(263): warning C4716: 'taken': must return a value
-C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_state.c(309): warning C4700: uninitialized local variable 'p' used
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(124): warning C4716: 'get_level': must return a value
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(207): warning C4716: 'get_sibling': must return a value
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(81): warning C4716: 'is_empty_game_tree': must return a value
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(390): warning C4716: 'build_gameBF': must return a value
+C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Assignment3\game_tree.c(450): warning C4716: 'build_gameDF': must return a value
   Assignment3.vcxproj -> C:\Users\tedkr\Documents\Utas\KIT107\A03\KIT107\Provisions(1)\Provisions\Debug\Assignment3.exe

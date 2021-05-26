@@ -48,10 +48,18 @@ struct game_tree_int
 void init_game_tree(game_tree *tp,bool e,void *o,int l)
 {
 	trace("game_tree: initialiser starts");
-	
-	//COMPLETE ME!
+	*tp = (game_tree)malloc(sizeof(struct game_tree_int));
+
+	if (e = true)
+	{
+		(*tp)->root = NULL;
+	}
+	//(*tp)->root = o;
+	//(*tp)->root = l;
 
 	trace("game_tree: initialiser ends");
+	//Finish COMPLETE ME!!
+	// refer to new t_node?
 }
 	
 	
