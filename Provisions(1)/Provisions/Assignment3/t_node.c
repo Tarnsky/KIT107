@@ -50,7 +50,7 @@ struct t_node_int
 */
 void init_t_node(t_node *tp, void *o, int l)
 {
-    trace("t_node: Initialiser starts");
+    	trace("t_node: Initialiser starts");
 
 	*tp = (t_node)malloc(sizeof(struct t_node_int));
 	(*tp)->data = o;
@@ -59,7 +59,7 @@ void init_t_node(t_node *tp, void *o, int l)
 	(*tp)->sibling = NULL;
 	(*tp)->parent = NULL;
 
-    trace("t_node: Initialiser ends");
+    	trace("t_node: Initialiser ends");
 }
 
 
@@ -76,11 +76,11 @@ void init_t_node(t_node *tp, void *o, int l)
 */
 void set_t_node_data(t_node t, void *o)
 {
-    trace("set_t_node_data: set_t_node_data starts");
+    	trace("set_t_node_data: set_t_node_data starts");
 
 	t->data = o;
 
-    trace("set_t_node_data: set_t_node_data ends");
+    	trace("set_t_node_data: set_t_node_data ends");
 }
 	
 	
@@ -97,11 +97,11 @@ void set_t_node_data(t_node t, void *o)
 */
 void set_t_node_level(t_node t, int l)
 {
-    trace("set_t_node_level: set_t_node_level starts");
+	trace("set_t_node_level: set_t_node_level starts");
 
 	t->level = l;
 
-    trace("set_t_node_level: set_t_node_level ends");
+    	trace("set_t_node_level: set_t_node_level ends");
 }
 	
 	
@@ -180,7 +180,7 @@ void set_t_node_sibling(t_node t, t_node n)
 */
 void *get_t_node_data(t_node t)
 {
-    trace("get_t_node_data: get_t_node_data starts and ends");
+    	trace("get_t_node_data: get_t_node_data starts and ends");
 
 	return t->data;
 }
@@ -199,9 +199,9 @@ void *get_t_node_data(t_node t)
 */
 int get_t_node_level(t_node t)
 {
-    trace("get_t_node_level: get_t_node_level starts and ends");
+    	trace("get_t_node_level: get_t_node_level starts and ends");
 
-	return t->level;
+	return (t->level);
 }
 	
 	
@@ -220,7 +220,7 @@ t_node get_t_node_parent(t_node t)
 {
 	trace("get_t_node_parent: get_t_node_parent starts and ends");
 
-	return t->parent;
+	return (t->parent);
 }
 
 
@@ -239,7 +239,7 @@ t_node get_t_node_child(t_node t)
 {
 	trace("get_t_node_child: get_t_node_child starts and ends");
 
-	return t->child;
+	return (t->child);
 }
 
 
@@ -258,5 +258,5 @@ t_node get_t_node_sibling(t_node t)
 {
 	trace("get_t_node_sibling: get_t_node_sibling starts and ends");
 
-	return t->sibling;
+	return (t->sibling);
 }
