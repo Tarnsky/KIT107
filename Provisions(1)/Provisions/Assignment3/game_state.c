@@ -287,11 +287,11 @@ void land(game_state g, int r, int c)
 	num_of_moves = get_moves(g);
 	set_row(g,r);
 	set_column(g,c);
-	//m++
-	//occupy(square_state s, int c)
-	//Finish COMPLETE ME!
+	
 	//Need to increment the number of moves and occupy the related cell....
-
+	set_moves(g, num_of_moves+1);
+	occupy(g->board[r-1][c-1], num_of_moves+1);
+	
 	trace("land: land ends");
 }
 
@@ -308,15 +308,27 @@ void land(game_state g, int r, int c)
 game_state clone_game_state(game_state g)
 {
 	game_state p;
+	square_state store_square; //variable to store temporary square state
 
 	trace("clone_game_state: clone_game_state starts");
 
-	init_game_state(&p, get_row_num(g), get_column_num(g));
-	if (occupied(g))
+	init_game_state(&p);
+	set_row(p, get_row(g));
+	set_column(p, get_column(g));
+	set_moves(p, get_moves(g));
+	
+	// get each element of the board, store the square state and set it according to current game state
+	for(int i=1;i<=DIMENSION;i++)
 	{
-		trace("clone_game_state: clone_game_state finishes");
-		occupy(p, get_count(g));
+		for(int j=1;j<=DIMENSION;j++)
+		{
+			store_square=clone_square_state(g->board[i-1][j-1]);
+			set_square(p, store_square);
+		}
 	}
+	
+	trace("clone_game_state: clone_game_state finishes");
+	
 	return p;
 }
 
