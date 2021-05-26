@@ -238,7 +238,7 @@ bool valid(game_state g, int r, int c)
 {
 	trace("valid: valid starts and finishes");
 
-	return ((r>0 && r<= DIMENSION) && (C>0 && C<= DIMENSION));
+	return ((r>0 && r<= DIMENSION) && (c>0 && c<= DIMENSION));
 }
 
 
@@ -287,7 +287,8 @@ void land(game_state g, int r, int c)
 	num_of_moves = get_moves(g);
 	set_row(g,r);
 	set_column(g,c);
-	
+	//m++
+	//occupy(square_state s, int c)
 	//Finish COMPLETE ME!
 	//Need to increment the number of moves and occupy the related cell....
 
@@ -310,10 +311,12 @@ game_state clone_game_state(game_state g)
 
 	trace("clone_game_state: clone_game_state starts");
 
-	//COMPLETE ME!
-
-	trace("clone_game_state: clone_game_state finishes");
-
+	init_game_state(&p, get_row_num(g), get_column_num(g));
+	if (occupied(g))
+	{
+		trace("clone_game_state: clone_game_state finishes");
+		occupy(p, get_count(g));
+	}
 	return p;
 }
 

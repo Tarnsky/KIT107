@@ -52,9 +52,13 @@ void init_t_node(t_node *tp, void *o, int l)
 {
     trace("t_node: Initialiser starts");
 
-	//COMPLETE ME!
+	*tp = (t_node)malloc(sizeof(struct t_node_int));
+	(*tp)->data = o;
+	(*tp)->level = l;
 
     trace("t_node: Initialiser ends");
+	//Finish COMPLETE ME!
+	//terminate the "child", "sibling", and "parent" fields?
 }
 
 
@@ -94,7 +98,7 @@ void set_t_node_level(t_node t, int l)
 {
     trace("set_t_node_level: set_t_node_level starts");
 
-	//COMPLETE ME!
+	t->level = l;
 
     trace("set_t_node_level: set_t_node_level ends");
 }
@@ -115,7 +119,7 @@ void set_t_node_parent(t_node t, t_node n)
 {
 	trace("set_t_node_parent: set_t_node_parent starts");
 
-	//COMPLETE ME!
+	t->parent = n;
 
 	trace("set_t_node_parent: set_t_node_parent ends");
 }
@@ -136,7 +140,7 @@ void set_t_node_child(t_node t, t_node n)
 {
 	trace("set_t_node_child: set_t_node_child starts");
 
-	//COMPLETE ME!
+	t->child = n;
 
 	trace("set_t_node_child: set_t_node_child ends");
 }
@@ -157,7 +161,7 @@ void set_t_node_sibling(t_node t, t_node n)
 {
 	trace("set_t_node_sibling: set_t_node_sibling starts");
 
-	//COMPLETE ME!
+	t->sibling = n;
 
 	trace("set_t_node_sibling: set_t_node_sibling ends");
 }
@@ -196,7 +200,7 @@ int get_t_node_level(t_node t)
 {
     trace("get_t_node_level: get_t_node_level starts and ends");
 
-	//COMPLETE ME!
+	return t->level;
 }
 	
 	
@@ -215,7 +219,7 @@ t_node get_t_node_parent(t_node t)
 {
 	trace("get_t_node_parent: get_t_node_parent starts and ends");
 
-	//COMPLETE ME!
+	return t->parent;
 }
 
 
@@ -234,7 +238,7 @@ t_node get_t_node_child(t_node t)
 {
 	trace("get_t_node_child: get_t_node_child starts and ends");
 
-	//COMPLETE ME!
+	return t->child;
 }
 
 
@@ -253,5 +257,5 @@ t_node get_t_node_sibling(t_node t)
 {
 	trace("get_t_node_sibling: get_t_node_sibling starts and ends");
 
-	//COMPLETE ME!
+	return t->sibling;
 }
