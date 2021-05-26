@@ -48,20 +48,19 @@ struct game_tree_int
 void init_game_tree(game_tree *tp,bool e,void *o,int l)
 {
 	trace("game_tree: initialiser starts");
+	
 	*tp = (game_tree)malloc(sizeof(struct game_tree_int));
-
-	if (e = true)
+	if (e)
 	{
 		(*tp)->root = NULL;
+	} else
+	{
+		t_node node;
+		init_t_node(&node, o, l);
+		(*tp)->root = node;
 	}
-	//init_t_node(&tp, NULL, NULL);
-	//set_t_node_parent(NULL);
-	//set_t_node_child(NULL);
-
 
 	trace("game_tree: initialiser ends");
-	//Finish COMPLETE ME!!
-	// refer to new t_node?
 }
 	
 	
@@ -80,8 +79,9 @@ bool is_empty_game_tree(game_tree t)
 	trace("is_empty_game_tree: is_empty_game_tree starts and ends");
 		
 	return (t->root == NULL);
-	//Finish COMPLETE ME!!
+	
 	//is this right?
+	//Yes you boss!
 }
 
 
@@ -130,7 +130,6 @@ int get_level(game_tree t)
 		exit(1);
 	}
 	return get_t_node_level(t->root);
-
 }
 	
 
@@ -274,7 +273,6 @@ void set_level(game_tree t,int l)
 		fprintf(stderr, "set_level: empty game tree");
 		exit(1);
 	}
-
 	set_t_node_level(t->root, l);
 
 	trace("set_level: set_level ends");
@@ -355,7 +353,6 @@ void set_sibling(game_tree t,game_tree s)
 		fprintf(stderr, "set_sibling: empty game tree");
 		exit(1);
 	}
-
 	set_t_node_child(t->root, s->root);
 
 	trace("set_sibling: set_sibling ends");
@@ -379,11 +376,11 @@ void generate_levelBF(game_tree t, queue q)
 {
 	const int HORIZ_MOVES[] = { -2, -1, +1, +2, +2, +1, -1, -2 };	// moves left/right
 	const int VERT_MOVES[] = { -1, -2, -2, -1, +1, +2, +2, +1 };	// moves up/down
-	const int MOVE_COUNT = 8;										// number of potential moves
+	const int MOVE_COUNT = 8;					// number of potential moves
 
 	trace("generate_levelBF: generate_levelBF starts");
 
-	//COMPLETE ME!
+	//COMPLETE ME! holy fuck this one is going to be annoying and long i think 
 
 	trace("generate_levelBF: generate_levelBF ends");
 }
