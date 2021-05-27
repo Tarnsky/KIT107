@@ -39,7 +39,7 @@ void init_queue(queue *qp)
 	(*qp)->first = NULL;
 
 	trace("queue: Initialiser ends");
-	//COMPLETE??
+	//COMPLETE?? Yes!
 }
 
 
@@ -73,17 +73,15 @@ bool is_empty_queue(queue q)
 void *front(queue q)
 {
 	trace("front: front starts");
+	
 	if (is_empty_queue(q))
 	{
-		fprintf(stderr, "queue is empty.");
+		fprintf(stderr, "front: empty queue.");
 		exit(1);
 	}
-	else 
-	{
-		return q->first;
-	}
-
-	//COMPLETE??
+	return get_data_node(q->first);
+	
+	//COMPLETE?? Mostly, just need to keep the return out of the else's
 }
 
 
@@ -101,14 +99,12 @@ void rear(queue q)
 
 	if (is_empty_queue(q))
 	{
-		fprintf(stderr, "queue is empty.");
+		fprintf(stderr, "rear: empty queue.");
 		exit(1);
 	}
-	else
-	{
-		(q)->first == NULL;
-	}
-	//COMPLETE??
+	q->first = get_next_node(q->first);
+	
+	//COMPLETE?? Mostly!
 
 	trace("rear: rear ends");
 }
@@ -128,12 +124,29 @@ void rear(queue q)
 void add(queue q, void *o)
 {
 	trace("add: add starts");
-	node n;
-	init_node(&n, o);
-	set_next_node(q->first, n);
-	q->first = n;
-	//COMPLETE??
+	
+	node current_node;// current node, for storing each queue element
+	node next_node; // this is the next node of current node
 
+	init_node(&next_node, o); // the next node is o
+
+	if (is_empty_queue(q))
+	{
+		q->first = next_node;
+		trace("add: empty queue");
+	}
+	else
+	{
+		// initial current node is the head of the queue
+		current_node = q->first;
+		// get the last node
+		while (get_next_node(current_node) != NULL)
+		{
+			current_node = get_next_node(current_node);
+		}
+		// assign the next node/o as the next node of the last node
+		set_next_node(current_node, next_node);
+	}
 	trace("add: add ends");
 }
 
