@@ -27,7 +27,7 @@
 
 struct game_tree_int
 {
-	t_node root;			// the node at the top of the tree
+	t_node root;	// the node at the top of the tree
 };
 
 
@@ -378,8 +378,53 @@ void generate_levelBF(game_tree t, queue q)
 
 	trace("generate_levelBF: generate_levelBF starts");
 
-	//COMPLETE ME! holy fuck this one is going to be annoying and long i think 
-	//Yep got to here and thought ill come back to this later haha
+	int row_next; // next row candidate
+	int col_next; //next column candidate
+	int level_next; //the next level of the tree
+	game_state init_state; // initial state of t 
+	game_state stored_state; // variable for storing the cloning state 
+	game_tree new_tree; // the tree of the next level
+	game_tree sibling_tree; // the sibling of the new tree
+	bool valid_and_not_taken; // a condition that ensure a cell is valid and not occupied
+	
+	// get the initial state from t
+	init_state = (game_state)(get_data(t));
+	
+	// assign the next level
+	level_next=get_level(t) + 1;
+	for(int i=0;i<MOVE_COUNT;i++)
+	{
+		// clone the initial state and assign the next cell
+		stored_state=clone_game_state(init_state);
+		row_next=VERT_MOVES[i]+get_row(stored_state);
+		col_next=HORIZ_MOVES[i]+get_column(stored_state);
+		// get the condition (validation of the cell and checking whether it is occupied or not)
+		valid_and_not_taken=(valid(init_state,row_next,col_next) && (!taken(init_state,row_next,col_next)));
+		if(valid_and_not_taken)
+		{
+			// put the the state to the next cell
+			land(stored_state,row_next,col_next);
+			// re-initialize the game tree
+			init_game_tree(&new_tree,false,stored_state,level_next);
+			// t is now become the parent of the new tree
+			set_parent(new_tree,t);
+			// if the child of t is empty
+			if(is_empty_game_tree(get_child(t)))
+			{
+				// new tree is now the child of t
+				set_child(t,new_tree);
+			}
+			else
+			{
+				// assign new tree as the sibling
+				set_sibling(sibling_tree, new_tree);
+			}
+			// copy new tree to sibling tree and store new tree in the back of queue 
+			sibling_tree=new_tree;
+			add(q,new_tree);
+		}
+	}
+
 
 	trace("generate_levelBF: generate_levelBF ends");
 }
@@ -409,12 +454,40 @@ void generate_levelBF(game_tree t, queue q)
 */
 game_tree build_gameBF(game_tree t, queue q, int d)
 {
+	game_tree first_found_solution; // the first found solution
 
 	trace("build_gameBF: build_gameBF starts");
 
-	//COMPLETE ME!
-	
-	trace("build_gameBF: build_gameBF ends");
+	if (is_empty_game_tree(t))
+	{
+		trace("build_gameBF: empty game tree");
+		return t;
+	}
+	if(get_level(t)==d) // already in the last level
+	{
+		trace("build_gameBF: build_gameBF ends");
+		return t;
+	}
+	else
+	{
+		generate_levelBF(t,q); // generate the next level of game tree (t) 
+		//according to current queue
+		if(!is_empty_queue(q))
+		{
+			first_found_solution = front(q);
+			rear(q);
+			// recursively build the game tree in a breadth-first manner
+			// with the new queu (after removing the queue heading)
+			return build_gameBF(first_found_solution, q, d);
+		}
+		else
+		{
+			// if the queue empty, initialize the game tree
+			init_game_tree(&first_found_solution,true,NULL,-1);
+			return first_found_solution;
+		}
+
+	}
 }
 
 
@@ -439,7 +512,50 @@ void generate_levelDF(game_tree t, stack k)
 
 	trace("generate_levelDF: generate_levelDF starts");
 
-	//COMPLETE ME!
+	int row_next; // next row candidate
+	int col_next; //next column candidate
+	int level_next; //the next level of the tree
+	game_state init_state; // initial state of t 
+	game_state stored_state; // variable for storing the cloning state 
+	game_tree new_tree; // the tree of the next level
+	game_tree sibling_tree; // the sibling of the new tree
+	bool valid_and_not_taken; // a condition that ensure a cell is valid and not occupied
+	// get the initial state from t
+	init_state = (game_state)(get_data(t));
+	// assign the next level
+	level_next=get_level(t) + 1;
+	for(int i=0;i<MOVE_COUNT;i++)
+	{
+		// clone the initial state and assign the next cell
+		stored_state=clone_game_state(init_state);
+		row_next=VERT_MOVES[i]+get_row(stored_state);
+		col_next=HORIZ_MOVES[i]+get_column(stored_state);
+		// get the condition (validation of the cell and checking whether it is occupied or not)
+		valid_and_not_taken=(valid(init_state,row_next,col_next) && (!taken(init_state,row_next,col_next)));
+		if(valid_and_not_taken)
+		{
+			// put the the state to the next cell
+			land(stored_state,row_next,col_next);
+			// re-initialize the game tree
+			init_game_tree(&new_tree,false,stored_state,level_next);
+			// t is now become the parent of the new tree
+			set_parent(new_tree,t);
+			// if the child of t is empty
+			if(is_empty_game_tree(get_child(t)))
+			{
+				// new tree is now the child of t
+				set_child(t,new_tree);
+			}
+			else
+			{
+				// assign new tree as the sibling
+				set_sibling(sibling_tree, new_tree);
+			}
+			// copy new tree to sibling tree and store new tree on the top of stack 
+			sibling_tree=new_tree;
+			push(k, new_tree);
+		}
+	}
 
 	trace("generate_levelDF: generate_levelDF ends");
 }
@@ -469,12 +585,40 @@ void generate_levelDF(game_tree t, stack k)
 */
 game_tree build_gameDF(game_tree t, stack s, int d)
 {
-
+	game_tree first_found_solution; // the first found solution
+	
 	trace("build_gameDF: build_game starts");
 
-	//COMPLETE ME!
+	if (is_empty_game_tree(t))
+	{
+		trace("build_gameDF: empty game tree");
+		return t;
+	}
+	if(get_level(t)==d) // already in the last level
+	{
+		trace("build_gameDF: build_gameDF ends");
+		return t;
+	}
+	else
+	{
+		generate_levelDF(t,s);// generate the next level of game tree (t) 
+		//according to current stack
+		if(!is_empty_stack(s))
+		{
+			first_found_solution = top(s);
+			pop(s);
+			// recursively build the game tree in a depth-first manner
+			// with the new stack (after removing the bottom of the stack)
+			return build_gameDF(first_found_solution, s, d);
+		}
+		else
+		{
+			init_game_tree(&first_found_solution,true,NULL,-1);
+			return first_found_solution;
+		}
+
+	}
 		
-	trace("build_gameDF: build_gameDF ends");
 }
 
 
