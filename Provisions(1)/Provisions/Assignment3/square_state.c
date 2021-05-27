@@ -83,7 +83,7 @@ int get_row_num(square_state s)
 */
 int get_column_num(square_state s)
 {
-	//trace("get_column_num: get_column_num starts and finishes");
+	trace("get_column_num: get_column_num starts and finishes");
 
 	return (s->column);
 }

@@ -80,8 +80,6 @@ bool is_empty_game_tree(game_tree t)
 		
 	return (t->root == NULL);
 	
-	//is this right?
-	//Yes you boss!
 }
 
 
@@ -381,6 +379,7 @@ void generate_levelBF(game_tree t, queue q)
 	trace("generate_levelBF: generate_levelBF starts");
 
 	//COMPLETE ME! holy fuck this one is going to be annoying and long i think 
+	//Yep got to here and thought ill come back to this later haha
 
 	trace("generate_levelBF: generate_levelBF ends");
 }

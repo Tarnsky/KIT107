@@ -35,9 +35,11 @@ void init_queue(queue *qp)
 {
 	trace("queue: Initialiser starts");
 
-	//COMPLETE ME!
+	*qp = (queue)malloc(sizeof(struct queue_int));
+	(*qp)->first = NULL;
 
 	trace("queue: Initialiser ends");
+	//COMPLETE??
 }
 
 
@@ -71,8 +73,17 @@ bool is_empty_queue(queue q)
 void *front(queue q)
 {
 	trace("front: front starts");
+	if (is_empty_queue(q))
+	{
+		fprintf(stderr, "queue is empty.");
+		exit(1);
+	}
+	else 
+	{
+		return q->first;
+	}
 
-	//COMPLETE ME!
+	//COMPLETE??
 }
 
 
@@ -88,7 +99,16 @@ void rear(queue q)
 {
 	trace("rear: rear starts");
 
-	//COMPLETE ME!
+	if (is_empty_queue(q))
+	{
+		fprintf(stderr, "queue is empty.");
+		exit(1);
+	}
+	else
+	{
+		(q)->first == NULL;
+	}
+	//COMPLETE??
 
 	trace("rear: rear ends");
 }
@@ -108,8 +128,11 @@ void rear(queue q)
 void add(queue q, void *o)
 {
 	trace("add: add starts");
-
-	//COMPLETE ME!
+	node n;
+	init_node(&n, o);
+	set_next_node(q->first, n);
+	q->first = n;
+	//COMPLETE??
 
 	trace("add: add ends");
 }

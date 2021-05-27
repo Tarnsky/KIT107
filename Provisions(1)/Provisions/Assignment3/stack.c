@@ -34,9 +34,11 @@ void init_stack(stack *sp)
 {
 	trace("stack: Initialiser starts");
 
-	//COMPLETE ME!
+	*sp = (stack)malloc(sizeof(struct stack_int));
+	(*sp)->tos = NULL;
 
 	trace("stack: Initialiser ends");
+	//COMPLETE??
 }
 
 
@@ -70,8 +72,16 @@ bool is_empty_stack(stack s)
 void *top(stack s)
 {
 	trace("top: top starts");
-
-	//COMPLETE ME!
+	if (is_empty_stack(s))
+	{
+		fprintf(stderr, "Stack is empty.");
+		exit(1);
+	}
+	else 
+	{
+		return s->tos;
+	}
+	//COMPLETE??
 }
 
 
@@ -86,8 +96,15 @@ void *top(stack s)
 void pop(stack s)
 {
 	trace("pop: pop starts");
-
-	//COMPLETE ME!
+	if (is_empty_stack(s))
+	{
+		fprintf(stderr, "Stack is empty.");
+		exit(1);
+	}
+	else {
+		s->tos = get_next_node(s->tos);
+	}
+	//COMPLETE??
 
 	trace("pop: pop ends");
 }
@@ -109,8 +126,16 @@ void pop(stack s)
 void push(stack s,void *o)
 {
 	trace("push: push starts");
+	node n;
 
-	//COMPLETE ME!
+	init_node(&n, o);
+	if (s->tos != NULL)
+	{
+		set_data_node(n, s->tos);
+	}
+	s->tos = n;
+
+	//COMPLETE??
 
 	trace("push: push ends");
 }
