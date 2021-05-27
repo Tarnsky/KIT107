@@ -38,7 +38,7 @@ void init_stack(stack *sp)
 	(*sp)->tos = NULL;
 
 	trace("stack: Initialiser ends");
-	//COMPLETE??
+	//COMPLETE?? Yes!
 }
 
 
@@ -72,16 +72,14 @@ bool is_empty_stack(stack s)
 void *top(stack s)
 {
 	trace("top: top starts");
+	
 	if (is_empty_stack(s))
 	{
-		fprintf(stderr, "Stack is empty.");
+		fprintf(stderr, "top: stack empty.");
 		exit(1);
 	}
-	else 
-	{
-		return s->tos;
-	}
-	//COMPLETE??
+	return get_data_node(s->tos);
+	//COMPLETE?? Mostly!
 }
 
 
@@ -96,15 +94,15 @@ void *top(stack s)
 void pop(stack s)
 {
 	trace("pop: pop starts");
+	
 	if (is_empty_stack(s))
 	{
-		fprintf(stderr, "Stack is empty.");
+		fprintf(stderr, "pop: stack empty.");
 		exit(1);
 	}
-	else {
-		s->tos = get_next_node(s->tos);
-	}
-	//COMPLETE??
+	s->tos = get_next_node(s->tos);
+	
+	//COMPLETE Mostly!
 
 	trace("pop: pop ends");
 }
@@ -126,16 +124,13 @@ void pop(stack s)
 void push(stack s,void *o)
 {
 	trace("push: push starts");
-	node n;
+	
+	node new_node;
+	init_node(&new_node, o);
+	set_next_node(new_node, s->tos);
+	s->tos = new_node;
 
-	init_node(&n, o);
-	if (s->tos != NULL)
-	{
-		set_data_node(n, s->tos);
-	}
-	s->tos = n;
-
-	//COMPLETE??
+	//COMPLETE Mostly!
 
 	trace("push: push ends");
 }
