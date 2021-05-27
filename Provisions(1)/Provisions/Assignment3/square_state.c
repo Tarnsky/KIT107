@@ -179,7 +179,7 @@ void occupy(square_state s, int c)
 	trace("occupy: occupy starts");
 	
 	s->visited = true;
-	s->move;
+	s->move = c;
 	
 	trace("occupy: occupy ends");
 }
